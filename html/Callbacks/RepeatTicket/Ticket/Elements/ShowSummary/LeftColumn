@@ -6,6 +6,7 @@
 $Ticket
 </%args>
 <%init>
+return unless RT->Config->Get( 'RepeatTicket', $session{'CurrentUser'} );
 my $can_modify = $Ticket->CurrentUserHasRight('ModifyTicket');
 my $cf = RT::CustomField->new($session{CurrentUser});
 $cf->Load('Original Ticket');

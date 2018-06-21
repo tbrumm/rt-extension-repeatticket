@@ -11,6 +11,16 @@ use RT::Date;
 use List::MoreUtils qw/after/;
 use DateTime::Event::ICal;
 
+$RT::Config::META{'RepeatTicket'} = {
+    Section         => 'Ticket display',
+    Overridable     => 1,
+    Widget          => '/Widgets/Form/Boolean',
+    WidgetArguments => {
+        Description => 'Display a Repeating Tickets on Ticket Display Page', # loc
+        Hints       => '(' . __PACKAGE__ . ')',
+    },
+};
+
 RT->AddStyleSheets('repeat-ticket.css')
     if $RT::StaticPath;
 
